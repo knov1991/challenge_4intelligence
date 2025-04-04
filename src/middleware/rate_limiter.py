@@ -9,7 +9,7 @@ class RateLimiter:
 
     def allow_request(self, identifier: str) -> bool:
         ''' Verifica se o identificador pode realizar novas requisições com base no limite e tempo de expiração.
-            :param identifier: Representa o user_id, aqui estou usando o primeiro ip da lista de "X-Forwarded-For"
+            :param identifier: Representa o user_id, esta sendo usando o primeiro ip da lista de "X-Forwarded-For"
 
             :return: retorna um boolean, True para permitido e False caso exceda o limite.
         '''
