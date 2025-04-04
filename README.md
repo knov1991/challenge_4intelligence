@@ -20,4 +20,9 @@ Em caso de conflito de portas por já estarem sendo usadas, altere.
 - redis: 6379:6379
 
 ## Como rodar os testes
-1. `pytest src/tests`
+1. Rodar o teste no container (precisa estar com container rodando `docker-compose up`)
+    - `docker-compose exec app_notification pytest tests`
+
+2. Rodar o teste local (de preferencia crie uma venv!)
+    - `pip install -r requirements.txt` - instale as dependências do projeto (de preferencia crie uma venv!)
+    - `pytest src/tests` - execute os testes

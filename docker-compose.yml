@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  app:
+  app_notification:
     build: .
     container_name: fastapi_notification
     restart: always
