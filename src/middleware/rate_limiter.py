@@ -11,7 +11,7 @@ class RateLimiter:
         """ Verifica se o identificador pode realizar novas requisições com base no limite e tempo de expiração.
             :param identifier: Representa o user_id, esta sendo usando o primeiro ip da lista de "X-Forwarded-For"
 
-            :return: retorna um boolean, True para permitido e False caso exceda o limite.
+            :return bool: True para permitido e False caso exceda o limite.
         """
         now = int(time.time())
         key = f"rate_limit:{identifier}:{now // config.TIME_SECONDS}"
