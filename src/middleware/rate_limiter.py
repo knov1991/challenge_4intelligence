@@ -20,7 +20,7 @@ class RateLimiter:
         if count == 1:
             self.redis.expire(key, config.TIME_SECONDS)
 
-        # Vou deixar aqui para caso queira acompanhar a contagem de requests
+        # Vou deixar aqui para caso queira acompanhar a contagem de requests pelo console
         print('ip:', identifier, 'count:', count)
         return count <= config.MAX_REQUESTS_PER_MINUTE
 
