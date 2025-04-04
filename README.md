@@ -8,7 +8,7 @@
     - deixei um print para mostrar o ip(user_id) e o count de requests, assim é possivel acompanhar pelo console
 
 ## Configurações
-1. Deixei o arquivo `.env` incluso pois esse código tem o proposito apenas de teste local(não produção).
+1. Deixei o arquivo `.env` incluso pois esse código tem o proposito apenas de teste local e não contem dados sigilosos.
 - REDIS_HOST=redis_notification
 - REDIS_PORT=6379
 - MAX_REQUESTS_PER_MINUTE=100
