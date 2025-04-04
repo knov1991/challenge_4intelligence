@@ -17,7 +17,7 @@ def mock_redis():
         call_count[key] += 1
         return call_count[key]
 
-    mock.incr.side_effect = mock_incr  # Simula incremento correto
+    mock.incr.side_effect = mock_incr
     return mock
 
 @pytest.fixture
@@ -27,7 +27,7 @@ def rate_limiter(mock_redis):
 
 def test_allow_first_request(rate_limiter, mock_redis):
     """Deve permitir a primeira requisição e armazenar no Redis"""
-    mock_redis.incr.return_value = 1  # Primeira requisição retorna 1
+    mock_redis.incr.return_value = 1
 
     assert rate_limiter.allow_request("user_123") is True
     mock_redis.expire.assert_called_once_with(ANY, config.TIME_SECONDS)
@@ -44,5 +44,5 @@ def test_block_excess_requests(rate_limiter):
     for _ in range(config.MAX_REQUESTS_PER_MINUTE):
         assert rate_limiter.allow_request("user_123") is True
 
-    # Agora, a próxima requisição deve ser bloqueada
+    # A próxima requisição deve ser bloqueada, por atingir o limite
     assert rate_limiter.allow_request("user_123") is False
